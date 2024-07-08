@@ -1,0 +1,21 @@
+#include <AccelStepper.h>
+
+// Define los pines para el motor
+int pinStep = 9;
+int pinDir = 8;
+
+// Crea una instancia del motor
+AccelStepper stepper(AccelStepper::DRIVER, pinStep, pinDir);
+
+void setup() {
+  stepper.setMaxSpeed(35); // Establece la velocidad máxima
+  stepper.setAcceleration(1000); // Establece la aceleración
+  delay(120000);//tiempo de precalentamiento 
+}
+
+void loop() {
+  // Mueve el motor a la posición 10000
+  stepper.moveTo(3000000);
+ 
+  stepper.run();
+}
